@@ -1,8 +1,16 @@
 import { model, Schema } from 'mongoose';
 import { TProduct } from './product.interface';
+import ShortUniqueId from 'short-unique-id';
+
+const uid = new ShortUniqueId({length: 8});
 
 const ProductSchema = new Schema<TProduct>(
   {
+    id: {
+      type: String,
+      default: () => uid.randomUUID(),
+      unique: true
+    },
     name: {
       type: String,
       required: [true, 'Name is required'],
@@ -52,5 +60,7 @@ const ProductSchema = new Schema<TProduct>(
     timestamps: true,
   },
 );
+
+ProductSchema.index({ name: 'text', brand: 'text', type: 'text' });
 
 export const Product = model<TProduct>('Product', ProductSchema);
