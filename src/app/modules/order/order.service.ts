@@ -36,6 +36,11 @@ const createOrder = async (orderData: TOrder) => {
   return order;
 };
 
+const getOrders = async () => {
+  const orders = await Order.find()
+  return orders
+}
+
 const calculateRevenue = async () => {
   const revenue = await Order.aggregate([
     {
@@ -50,5 +55,6 @@ const calculateRevenue = async () => {
 
 export const OrderServices = {
   createOrder,
+  getOrders,
   calculateRevenue,
 };
