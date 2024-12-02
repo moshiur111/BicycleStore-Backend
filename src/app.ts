@@ -11,9 +11,10 @@ app.use(express.json());
 app.use('/api/products', ProductRoutes);
 app.use('/api/orders', OrderRoutes)
 
-app.get('/health', (req: Request, res: Response) => {
-  res.json({
-    message: 'Success',
+app.get('/', (req: Request, res: Response) => {
+  res.status(200).json({
+    success: true,
+    message: 'Welcome to Bicycle Store Backend',
   });
 });
 
