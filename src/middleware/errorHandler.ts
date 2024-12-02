@@ -6,7 +6,7 @@ const errorHandler = (err: any, req: Request, res: Response, next: NextFunction)
     
     res.status(statusCode).json({
         message: err.message || 'Something went wrong',
-        success: false,
+        status: false,
         error: err.name || "Error",
         stack: config.node_env === 'development' ? err.stack : undefined,
     })
