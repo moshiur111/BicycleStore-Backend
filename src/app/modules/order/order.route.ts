@@ -3,7 +3,8 @@ import { OrderControllers } from './order.controller';
 
 const router = Router();
 
-router.post('/', OrderControllers.createOrder)
 router.get('/revenue', OrderControllers.calculateRevenue )
+router.post('/', OrderControllers.createOrder)
+router.get('/', OrderControllers.getOrders )
 
 export const OrderRoutes = router;
