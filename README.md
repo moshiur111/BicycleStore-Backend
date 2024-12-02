@@ -34,8 +34,8 @@ This API is designed to manage a bicycle store efficiently, enabling CRUD operat
 
 1. **Clone the repository**:  
    ```bash
-   git clone https://github.com/moshiur111/BicycleStore-Backend.git
-   cd BicycleStore-Backend
+   git clone https://github.com/moshiur111/bicycle-store-backend.git
+   cd bicycle-store-backend
    ```
 
 2. **Install dependencies**:  
@@ -62,7 +62,7 @@ This API is designed to manage a bicycle store efficiently, enabling CRUD operat
 | **Operation**       | **Method** | **Endpoint**              | **Description**                                |
 |----------------------|------------|---------------------------|-----------------------------------------------|
 | Create Bicycle       | `POST`     | `/api/products`           | Add a new bicycle to the inventory.          |
-| Get All Bicycles     | `GET`      | `/api/products`           | Retrieve a list of all bicycles.             |
+| Get All Bicycles     | `GET`      | `/api/products`           | Retrieve a list of all bicycles. Supports searching by `name`, `brand`, or `type` using `?searchTerm=value`.             |
 | Get Specific Bicycle | `GET`      | `/api/products/:productId`| Retrieve details of a specific bicycle.      |
 | Update Bicycle       | `PUT`      | `/api/products/:productId`| Update details of a specific bicycle.        |
 | Delete Bicycle       | `DELETE`   | `/api/products/:productId`| Remove a bicycle from the inventory.         |
@@ -89,5 +89,5 @@ This API is designed to manage a bicycle store efficiently, enabling CRUD operat
 
 - **GitHub Repository Link:** [Bicycle Store Backend](https://github.com/moshiur111/bicycle-store-backend)  
 - **Live Deployment Link:** [Live API Link](https://bicycle-store-backend-mauve.vercel.app/)  
-- **Video Explanation:** [Live API Link](#)  
+- **Video Explanation:** [Live Video Link](https://drive.google.com/file/d/1isLx5kR5fp3GdYD3g-N7kFhko77BwP5W/view?usp=sharing)  
 
