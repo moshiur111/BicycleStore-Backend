@@ -1,6 +1,6 @@
 # 🚴 Bi-Cycle Store Backend API  
 
-The **Bi-Cycle Store API** is a backend system built with **Node.js**, **TypeScript**, **Express**, and **MongoDB**. It manages bicycles and orders while ensuring inventory accuracy.
+The **Bi-Cycle Store API** is a backend system built with **Node.js**, **TypeScript**, **Express**, **Mongoose**, and **MongoDB**. It manages bicycles and orders while ensuring inventory accuracy.
 
 ---
 
