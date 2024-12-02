@@ -23,7 +23,6 @@ const createProduct = async (
 const getProducts = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const searchTerm = req.query.searchTerm;
-    console.log(searchTerm);
     const allProducts = await ProductServices.getProducts(searchTerm as string);
 
     res.status(200).json({
