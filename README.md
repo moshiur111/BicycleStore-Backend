@@ -87,7 +87,7 @@ This API is designed to manage a bicycle store efficiently, enabling CRUD operat
 
 ## 🔗 **Repository and Deployment Link**  
 
-- **GitHub Repository Link:** [Bicycle Store Backend](https://github.com/moshiur111/BicycleStore-Backend)  
-- **Live Deployment Link:** [Live API Link](#)  
+- **GitHub Repository Link:** [Bicycle Store Backend](https://github.com/moshiur111/bicycle-store-backend)  
+- **Live Deployment Link:** [Live API Link](https://bicycle-store-backend-mauve.vercel.app/)  
 - **Video Explanation:** [Live API Link](#)  
 
