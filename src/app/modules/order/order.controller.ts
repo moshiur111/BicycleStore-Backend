@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import HttpError from '../../../utils/error';
 import { OrderServices } from './order.service';
+import error from '../../../utils/error';
 
 const createOrder = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -9,7 +9,7 @@ const createOrder = async (req: Request, res: Response, next: NextFunction) => {
 
     if (!email || !product || !quantity || !totalPrice) {
       return next(
-        new HttpError(
+        new error(
           'All fields(email, product, quantity, totalPrice) are requried',
           400,
         ),
