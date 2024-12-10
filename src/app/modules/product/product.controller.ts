@@ -27,7 +27,7 @@ const getProducts = async (req: Request, res: Response, next: NextFunction) => {
 
     res.status(200).json({
       message: 'Bicycles retrieved successfully',
-      success: true,
+      status: true,
       data: allProducts,
     });
   } catch (error) {
@@ -41,13 +41,13 @@ const getProductById = async (
   next: NextFunction,
 ) => {
   try {
-    const productId = req.params.productId;
+    const {productId} = req.params;
 
     const product = await ProductServices.getProductById(productId);
 
     res.status(200).json({
       message: 'Bicycle retrieved successfully',
-      success: true,
+      status: true,
       data: product,
     });
   } catch (error) {
@@ -61,7 +61,7 @@ const updateProductById = async (
   next: NextFunction,
 ) => {
   try {
-    const productId = req.params.productId;
+    const {productId} = req.params;
     const productUpdateData = req.body;
 
     const updatedProduct = await ProductServices.updateProductById(
@@ -71,7 +71,7 @@ const updateProductById = async (
 
     res.status(200).json({
       message: 'Bicycle updated successfully',
-      success: true,
+      status: true,
       data: updatedProduct,
     });
   } catch (error) {
@@ -85,12 +85,12 @@ const deleteProductById = async (
   next: NextFunction,
 ) => {
   try {
-    const productId = req.params.productId;
+    const {productId} = req.params;
     await ProductServices.deleteProductById(productId);
 
     res.status(200).json({
       message: 'Bicycle deleted successfully',
-      success: 'true',
+      status: 'true',
       data: {},
     });
   } catch (error) {
