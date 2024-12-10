@@ -1,6 +1,6 @@
+import error from '../../../utils/error';
 import { Product } from '../product/product.model';
 import TOrder from './order.interface';
-import HttpError from '../../../utils/error';
 import { Order } from './order.model';
 
 const createOrder = async (orderData: TOrder) => {
@@ -9,11 +9,11 @@ const createOrder = async (orderData: TOrder) => {
   const foundProduct = await Product.findById(productId);
 
   if (!foundProduct) {
-    throw new HttpError('Product not found', 404);
+    throw new error('Product not found', 404);
   }
 
   if (foundProduct.quantity < quantity) {
-    throw new HttpError('Insuficiant stock for this order', 400);
+    throw new error('Insuficiant stock for this order', 400);
   }
 
   const totalPrice = foundProduct.price * quantity;
