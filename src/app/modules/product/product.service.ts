@@ -1,4 +1,4 @@
-import HttpError from '../../../utils/error';
+import error from '../../../utils/error';
 import { TProduct } from './product.interface';
 import { Product } from './product.model';
 
@@ -20,9 +20,9 @@ const getProducts = async (searchTerm: string) => {
 };
 
 const getProductById = async (productId: string) => {
-  const product = await Product.findOne({ id: productId });
+  const product = await Product.findById(productId);
   if (!product) {
-    throw new HttpError(`Product with ID "${productId}" not found`, 404);
+    throw new error(`Product with ID "${productId}" not found`, 404);
   }
   return product;
 };
@@ -32,16 +32,16 @@ const updateProductById = async (
   productUpdateData: Partial<TProduct>,
 ) => {
   if (!productId) {
-    throw new HttpError(`Invalid product ID`, 400);
+    throw new error(`Invalid product ID`, 400);
   }
-  const updatedProduct = await Product.findOneAndUpdate(
-    { id: productId },
+  const updatedProduct = await Product.findByIdAndUpdate(
+    productId,
     productUpdateData,
     { new: true },
   );
 
   if (!updatedProduct) {
-    throw new HttpError(`Product with id ${productId} not found`, 404);
+    throw new error(`Product with id ${productId} not found`, 404);
   }
 
   return updatedProduct;
@@ -49,12 +49,12 @@ const updateProductById = async (
 
 const deleteProductById = async (productId: string) => {
   if (!productId) {
-    throw new HttpError('Invalid product ID', 400);
+    throw new error('Invalid product ID', 400);
   }
-  const deletedProduct = await Product.findOneAndDelete({ id: productId });
+  const deletedProduct = await Product.findByIdAndDelete(productId);
 
   if (!deletedProduct) {
-    throw new HttpError(`Product with id ${productId} not found`, 404);
+    throw new error(`Product with id ${productId} not found`, 404);
   }
 
   return deletedProduct;
