@@ -1,8 +1,8 @@
-import express, { Application, NextFunction, Request, Response } from 'express';
+import express, { Application, Request, Response } from 'express';
 import { ProductRoutes } from './app/modules/product/product.route';
 import { OrderRoutes } from './app/modules/order/order.route';
-import errorHandler from './middleware/errorHandler';
-import HttpError from './utils/error';
+import globalErrorHandler from './middleware/globalErrorHandler';
+import notFound from './middleware/notFound';
 
 const app: Application = express();
 
@@ -18,11 +18,8 @@ app.get('/', (req: Request, res: Response) => {
   });
 });
 
-app.use((req: Request, res: Response, next: NextFunction) => {
-  const error = new HttpError(`Route not found: ${req.originalUrl}`, 404);
-  next(error);
-});
+app.use(notFound)
 
-app.use(errorHandler);
+app.use(globalErrorHandler);
 
 export default app;
