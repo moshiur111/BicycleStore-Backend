@@ -22,7 +22,7 @@ const getProducts = async (searchTerm: string) => {
 const getProductById = async (productId: string) => {
   const product = await Product.findById(productId);
   if (!product) {
-    throw new error(`Product with ID "${productId}" not found`, 404);
+    throw new error(`Product with ID not found`, 404);
   }
   return product;
 };
@@ -41,7 +41,7 @@ const updateProductById = async (
   );
 
   if (!updatedProduct) {
-    throw new error(`Product with id ${productId} not found`, 404);
+    throw new error(`Product with id not found`, 404);
   }
 
   return updatedProduct;
@@ -54,7 +54,7 @@ const deleteProductById = async (productId: string) => {
   const deletedProduct = await Product.findByIdAndDelete(productId);
 
   if (!deletedProduct) {
-    throw new error(`Product with id ${productId} not found`, 404);
+    throw new error(`Product with id not found`, 404);
   }
 
   return deletedProduct;
